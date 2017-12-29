@@ -259,12 +259,15 @@ func watch(done chan bool, s *Session) {
 						s.deliverReport(reportPeek.Class, report)
 					} else {
 						fmt.Println("JSON parsing error 2:", err)
+						time.Sleep(100 * time.Millisecond)
 					}
 				} else {
 					fmt.Println("JSON parsing error:", err)
+					time.Sleep(100 * time.Millisecond)
 				}
 			} else {
 				fmt.Println("Stream reader error (is gpsd running?):", err)
+				time.Sleep(100 * time.Millisecond)
 			}
 		}
 	}
